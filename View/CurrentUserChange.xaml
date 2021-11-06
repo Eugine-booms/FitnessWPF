@@ -26,9 +26,10 @@
                 </WrapPanel>
                 <Grid Margin="0 0 0 20">
                     <Button HorizontalAlignment="Left" Content="Войти"/>
-                    <Button HorizontalAlignment="Right" Content="Новый" Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button HorizontalAlignment="Right"  Content="Новый" Style="{StaticResource MaterialDesignFlatButton}"/>
                 </Grid>
                 <TextBox x:Name="TextBox_Login" Text="{Binding Path=CurentUser.Name}" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <TextBox x:Name="TextBox_Password"  materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBlock Text="Последние пользователи" FontSize="15" FontWeight="Bold" Margin="0 10 0 5 " HorizontalAlignment="Center"/>
                 <ListBox x:Name="ListBox_UsersList" ItemsSource="{Binding Path=Users}" Margin="10" Style="{StaticResource MaterialDesignChoiceChipListBox}"/>
             </StackPanel>

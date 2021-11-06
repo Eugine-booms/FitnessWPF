@@ -24,6 +24,7 @@ namespace FitnessWPF.View
         {
             InitializeComponent();
             DataContext = new CurentUserChangeViewModel();
+
         }
     }
 }
