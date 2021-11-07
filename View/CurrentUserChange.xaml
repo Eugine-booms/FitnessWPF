@@ -25,6 +25,12 @@
                     <materialDesign:PackIcon Kind="Account" Height="30" Width="30" />
                     <TextBlock Text="Выберите пользователя" FontSize="30" FontWeight="Bold" Margin="0 0 0 20 " HorizontalAlignment="Center"/>
                 </WrapPanel>
+                <WrapPanel > 
+                    <TextBlock Text="Текущий пользователь:" FontSize="20" FontWeight="Bold" Margin="0 20 0 20 " HorizontalAlignment="Center" Style="{StaticResource MaterialDesignTextBlock}"/>
+                    <TextBlock Text="{Binding CurentUser.Name}" FontSize="20" FontWeight="Bold" Margin="20 20 0 20 " HorizontalAlignment="Center" FontStyle="Italic" Style="{StaticResource MaterialDesignTextBlock}"/>
+                </WrapPanel>
+                
+                <StackPanel Height="50">
                 <ListBox x:Name="ListBox_UsersList" ItemsSource="{Binding Path=Users}" SelectedItem="{Binding Path=CurentUser, Mode=TwoWay}" Margin="10" Style="{StaticResource MaterialDesignChoiceChipListBox}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -32,16 +38,13 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <TextBox x:Name="TextBlock_Login" Text="{Binding Filtertext, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                </StackPanel>
+                <TextBox x:Name="TextBlock_Login" Text="{Binding Path=TextBoxLogin, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox x:Name="TextBox_Password"  materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                
                 <Grid Margin="0 20 0 20">
                     <Button Command="{Binding Path=EnterUserCommand}" CommandParameter="{Binding Path=CurentUser}" HorizontalAlignment="Left" Content="Войти"/>
                     <Button Command="{Binding Path=NewUserCommand}" HorizontalAlignment="Right"  Content="Новый" Style="{StaticResource MaterialDesignFlatButton}"/>
                 </Grid>
-                <!--<TextBlock Text="Последние пользователи" FontSize="15" FontWeight="Bold" Margin="0 10 0 5 " HorizontalAlignment="Center"/>-->
-                
-
             </StackPanel>
         </Border>
     </Grid>
