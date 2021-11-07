@@ -23,8 +23,12 @@ namespace FitnessWPF.View
         public CurrentUserChange()
         {
             InitializeComponent();
-            DataContext = new CurentUserChangeViewModel();
+            Loaded += CurrentUserChange_Loaded;
+        }
 
+        private void CurrentUserChange_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = new CurentUserChangeViewModel();
         }
     }
 }
