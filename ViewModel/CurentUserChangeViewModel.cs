@@ -35,6 +35,7 @@ namespace FitnessWPF.ViewModel
             get => _textBoxLogin;
             set
             {
+                
                 _textBoxLogin = value;
                 OnPropertyChanged("TextBoxLogin");
                 foreach (User item in Users)
