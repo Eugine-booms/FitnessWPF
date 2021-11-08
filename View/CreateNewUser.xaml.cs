@@ -23,10 +23,5 @@ namespace FitnessWPF.View
         {
             InitializeComponent();
         }
-
-        private void Button_CreateUser_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -17,14 +17,11 @@ namespace FitnessWPF.ViewModel
 {
     public class CurentUserChangeViewModel : DependencyObject, INotifyPropertyChanged
     {
-
-
         public ICollectionView Users
         {
             get { return (ICollectionView)GetValue(ItemsProperty); }
             set { SetValue(ItemsProperty, value); }
         }
-
         // Using a DependencyProperty as the backing store for Items.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ItemsProperty =
             DependencyProperty.Register("Items", typeof(ICollectionView), typeof(CurentUserChangeViewModel), new PropertyMetadata(null));
@@ -107,19 +104,15 @@ namespace FitnessWPF.ViewModel
         }
         private void EnterUser(object obg)
         {
-            var newUserwindow = new MainWindow();
-            var newUserwindowViewModel = new MainWindowViewModel();
-            newUserwindow.ShowDialog();
 
         }
         private void NewUser(object obj)
         {
-            var newUserwindow = new CreateNewUser();
-            var newUserwindowViewModel = new CreateNewUserViewModel();
+            
+            var vm = new CreateNewUserViewModel();
+            var newUserwindow = new CreateNewUser() {DataContext=vm };
             newUserwindow.ShowDialog();
         }
-
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

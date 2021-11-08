@@ -82,6 +82,7 @@ namespace FitnessWPF.Model
         {
             return new User("SomeName", Gender.Male, Convert.ToDateTime("21.04.1985"), 127, 180);
         }
+
         public User(string name,
                     Gender gender,
                     DateTime birthDate,
@@ -123,6 +124,13 @@ namespace FitnessWPF.Model
 
         public User()
         {
+        }
+
+        public User(string name, Gender gender, string password, string email) : this(name)
+        {
+            Gender = gender;
+            Password = password ?? throw new ArgumentNullException(nameof(password));
+            Email = email ?? throw new ArgumentNullException(nameof(email));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

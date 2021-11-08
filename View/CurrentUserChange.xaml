@@ -42,7 +42,7 @@
                 <TextBox x:Name="TextBlock_Login" Text="{Binding Path=TextBoxLogin, Mode=TwoWay,  UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <TextBox x:Name="TextBox_Password"  materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
                 <Grid Margin="0 20 0 20">
-                    <Button Command="{Binding Path=EnterUserCommand}" CommandParameter="{Binding Path=CurentUser}" HorizontalAlignment="Left" Content="Войти"/>
+                    <Button x:Name="dialog" Command="{Binding Path=EnterUserCommand}" CommandParameter="{Binding Path=CurentUser}" HorizontalAlignment="Left" Content="Войти" Click="dialog_Click"/>
                     <Button Command="{Binding Path=NewUserCommand}" HorizontalAlignment="Right"  Content="Новый" Style="{StaticResource MaterialDesignFlatButton}"/>
                 </Grid>
             </StackPanel>

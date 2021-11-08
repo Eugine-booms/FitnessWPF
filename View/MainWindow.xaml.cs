@@ -16,21 +16,22 @@ using System.Windows.Shapes;
 
 namespace FitnessWPF.View
 {
-    public interface IMainWindow
-    {
-        
-    }
-
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
 
-    public partial class MainWindow : Window, IMainWindow
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new MainWindowViewModel();
+            Loaded += MainWindow_Loaded;
+            DataContext = new MainWindowViewModel();
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = new MainWindowViewModel();
         }
 
         private void MenuUser_Click(object sender, RoutedEventArgs e)

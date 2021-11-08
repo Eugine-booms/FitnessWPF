@@ -72,6 +72,7 @@
     <Compile Include="View\CreateNewUser.xaml.cs">
       <DependentUpon>CreateNewUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ViewShower.cs" />
     <Page Include="View\CurrentUserChange.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

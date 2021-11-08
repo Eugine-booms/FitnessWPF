@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessWPF.View"
         mc:Ignorable="d"
-        Title="ChoiceUser" Height="500" Width="700" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="NewUser" Height="500" Width="700" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:FitnessWPF.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:CreateNewUserViewModel}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -28,11 +28,11 @@
                 </WrapPanel>
                 
                 
-                <Grid Margin="0 0 0 20">
+                <!--<Grid Margin="0 0 0 20">
                     <Button HorizontalAlignment="Left" Content="Регистрация"/>
                     <Button HorizontalAlignment="Right" Content="Войти" Style="{StaticResource MaterialDesignFlatButton}"/>
-                </Grid>
-                <TextBlock Text="Выберете пол" FontSize="20" FontWeight="Normal" Margin="0 0 0 20 " HorizontalAlignment="Center"/>
+                </Grid>-->
+                <!--<TextBlock Text="Выберете пол" FontSize="20" FontWeight="Normal" Margin="0 0 0 20 " HorizontalAlignment="Center"/>-->
                 <Grid Margin=" 0 0 0 20">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -40,17 +40,16 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <materialDesign:PackIcon Kind="HumanMale" Height="30" Width="30" HorizontalAlignment="Left" />
-                        <RadioButton x:Name="RadioButton_Male" Content="Мужчина" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="30 0 0 0"/>
-                        
-                        <RadioButton x:Name="RadioButton_Famale" Grid.Column="1" Content="Женщина" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="30 0 0 0"/>
+                        <RadioButton IsChecked="{Binding RadioButtonMale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Content="Мужчина" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="30 0 0 0"/>
+                        <RadioButton IsChecked="{Binding RadioButtonFeMale, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Content="Женщина" FontSize="20" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="30 0 0 0"/>
                         <materialDesign:PackIcon Kind="HumanFemale" Grid.Column="1" Height="30" Width="30" HorizontalAlignment="Left" />
                     </Grid>
                 </Grid>
-                <TextBox x:Name="TextBox_Login" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox x:Name="PasswordBox1_Password" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <PasswordBox x:Name="PasswordBox2_Password" materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <TextBox x:Name="TextBox_email" materialDesign:HintAssist.Hint="Введите e-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <Button Content="Создать пользователя" Click="Button_CreateUser_Click"/>
+                <TextBox Text="{Binding Login, Mode=OneWayToSource}" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <PasswordBox x:Name="PasswordBox1" PasswordChar="*" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <PasswordBox x:Name="PasswordBox2" PasswordChar="*" materialDesign:HintAssist.Hint="Повторите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                <TextBox Text="{Binding Email}" materialDesign:HintAssist.Hint="Введите e-mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                <Button Command="{Binding Path=CreateNewUserCommand}"  Content="Создать пользователя" Style="{StaticResource MaterialDesignFlatDarkBgButton}"/>
             </StackPanel>
         </Border>
     </Grid>

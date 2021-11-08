@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FitnessWPF.View"
         mc:Ignorable="d"
-        Title="FitnessWPF" Height="450" Width="800"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="FitnessWPF" Height="768" Width="748.494"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:FitnessWPF.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainWindowViewModel}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -14,10 +14,10 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
-        
+
 
     <DockPanel x:Name="MainDock" Background="Gray" Margin="10">
-        
+
         <Menu DockPanel.Dock="Top" Height="50" VerticalAlignment="Top" Background="LightGray">
             <MenuItem>
                 <MenuItem.Header>
@@ -26,7 +26,7 @@
                         <TextBlock>Menu</TextBlock>
                     </StackPanel>
                 </MenuItem.Header>
-                <MenuItem Header="User" Click="MenuUser_Click"> 
+                <MenuItem Header="User" Command="{Binding Path=ShowUserChangeViewCommand}">
                 </MenuItem>
                 <Separator />
                 <MenuItem Header="Exit" Click="MenuExit_Click"></MenuItem>
@@ -35,13 +35,19 @@
         <TabControl DockPanel.Dock="Top" >
             <TabItem Name="MainTab" Header="Главная">
                 <StackPanel x:Name="MainTabGrid">
-                    <Border MinHeight="150" MinWidth="150" Background="Gray" VerticalAlignment="Top" Padding="30" Margin="30" CornerRadius="30">
+                    <Border MinHeight="30" MinWidth="10" MaxHeight="30" MaxWidth="200" Background="Gray" VerticalAlignment="Top"  Margin="0 20 0 5" CornerRadius="10">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="30" Color="Black" ShadowDepth="10"  ></DropShadowEffect>
+                        </Border.Effect>
+                        <TextBlock Text="{Binding Path=CurentUser.Name}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+                    </Border>
+                    <Border MinHeight="150" MinWidth="150" Background="Gray" VerticalAlignment="Top"  Margin="30 20 30 30" CornerRadius="30">
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="30" Color="Black" ShadowDepth="10"></DropShadowEffect>
                         </Border.Effect>
-                        <TextBlock x:Name="CaloriesСounter" FontSize="30" FontWeight="Bold" Text="Calories" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="25" />
+                        <TextBlock x:Name="CaloriesСounter" FontSize="30" FontWeight="Bold" Text="{Binding Path=CurentCalories, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="25" />
                     </Border>
-                   
+
                 </StackPanel>
             </TabItem>
             <TabItem Name="diaryTab" Header="Дневник">
@@ -51,7 +57,7 @@
 
             </TabItem>
         </TabControl>
-        
+
 
 
 
