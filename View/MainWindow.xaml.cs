@@ -30,7 +30,7 @@ namespace FitnessWPF.View
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new MainWindowViewModel();
+           
         }
 
         private void MenuUser_Click(object sender, RoutedEventArgs e)

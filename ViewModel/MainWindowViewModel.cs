@@ -6,10 +6,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using FitnessWPF.ViewModel.Base;
 
 namespace FitnessWPF.ViewModel
 {
-    public class MainWindowViewModel : INotifyPropertyChanged
+    internal class MainWindowViewModel : ViewModelBase
     {
         private User curentUser =new User().GetSomeUser();
 
@@ -17,10 +18,6 @@ namespace FitnessWPF.ViewModel
         //{
         //    curentUser.GetSomeUser();
         //}
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
-        }
+        
     }
 }
