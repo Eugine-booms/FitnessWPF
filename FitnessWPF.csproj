@@ -64,6 +64,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="Infrastructure\Commands\Base\Command.cs" />
+    <Compile Include="Infrastructure\Commands\CloseAppCommand.cs" />
+    <Compile Include="Infrastructure\Commands\LambdaCommand.cs" />
     <Compile Include="Model\IDataSaver.cs" />
     <Compile Include="Model\SerializationSaver.cs" />
     <Compile Include="Model\UserManager.cs" />

@@ -30,16 +30,12 @@ namespace FitnessWPF.View
         public MainWindow()
         {
             InitializeComponent();
-           
         }
 
         private void MenuUser_Click(object sender, RoutedEventArgs e)
         {
 
         }
-        private void MenuExit_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
+        
     }
 }
